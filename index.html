@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Income & Expenses Graph Viewer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .hidden {
+            display: none;
+        }
+        img {
+            margin-top: 20px;
+            max-width: 90%;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Income & Expenses Graphs</h1>
+
+    <!-- Main Buttons -->
+    <button onclick="toggleSection('expenses')">Expenses</button>
+    <button onclick="toggleSection('income')">Income</button>
+
+    <!-- Expenses Sub Buttons -->
+    <div id="expenses" class="hidden">
+        <button onclick="showGraph('https://raw.githubusercontent.com/SorishJindal/test1/main/images/weekly_data-20250808T023619.png')">Weekly Graph</button>
+        <button onclick="showGraph('https://raw.githubusercontent.com/SorishJindal/test1/main/images/3_months_data-20250808T023501.png')">3-Month Graph</button>
+        <button onclick="showGraph('https://raw.githubusercontent.com/SorishJindal/test1/main/images/yearly_expenses-20250808T022703.png')">Yearly Graph</button>
+    </div>
+
+    <!-- Income Sub Buttons -->
+    <div id="income" class="hidden">
+        <button onclick="showGraph('https://raw.githubusercontent.com/SorishJindal/test1/main/images/weekly_data-20250808T023619.png')">Weekly Graph</button>
+        <button onclick="showGraph('https://raw.githubusercontent.com/SorishJindal/test1/main/images/3_months_data-20250808T023501.png')">3-Month Graph</button>
+        <button onclick="showGraph('https://raw.githubusercontent.com/SorishJindal/test1/main/images/yearly_income-20250808T022450.png')">Yearly Graph</button>
+    </div>
+
+    <!-- Image Display -->
+    <div>
+        <img id="graphImage" src="" alt="Graph will appear here">
+    </div>
+
+    <script>
+        function toggleSection(sectionId) {
+            document.getElementById("expenses").classList.add("hidden");
+            document.getElementById("income").classList.add("hidden");
+            document.getElementById(sectionId).classList.remove("hidden");
+        }
+
+        function showGraph(imagePath) {
+            document.getElementById("graphImage").src = imagePath;
+        }
+    </script>
+
+</body>
+</html>
